@@ -33,6 +33,18 @@ services:
     depends_on:
       - cache
       - database
+  web-customer:
+    build: 
+      context: .
+      dockerfile: ./apps/web/customer/Dockerfile
+    ports:
+        - "3001:80"
+    volumes:
+      - ./dist/apps/web/customer/:/usr/share/nginx/html/
+      - ./node_modules:/usr/share/nginx/html/node_modules
+    depends_on:
+      - api
+
 volumes:
   cache:
     driver: local
