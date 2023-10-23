@@ -2,20 +2,14 @@ import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
-import { Transport } from '@nestjs/microservices';
+
+import { startUpMicroservice } from '@workspace-nx/microservices';
 
 async function bootstrap() {
-  const app = await NestFactory.createMicroservice(AppModule, {
-    transport: Transport.REDIS,
-    options: {
-      host: 'cache',
-      port: 6379
-    }
-  }
-  );
+  const app = await NestFactory.createMicroservice<AppModule>(AppModule, startUpMicroservice());
   await app.listen().then(() => {
     Logger.log(
-      `🚀  user is running like: microservice - redis `
+      `🚀 redis microservice user is running`
     );
   });
 }

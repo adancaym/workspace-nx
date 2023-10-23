@@ -37,8 +37,6 @@ services:
     build: 
       context: .
       dockerfile: ./apps/services/entity/user/Dockerfile
-    ports:
-      - "3001:3000"
     volumes:
       - ./dist/apps/services/entity/user:/app
       - ./node_modules:/app/node_modules
