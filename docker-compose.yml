@@ -6,7 +6,7 @@ services:
     restart: always
     ports:
       - "6379:6379"
-    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    command: redis-server --save 20 1 --loglevel warning 
     volumes: 
       - cache:/data
   database:
@@ -33,12 +33,28 @@ services:
     depends_on:
       - cache
       - database
+  service-entity-user:
+    build: 
+      context: .
+      dockerfile: ./apps/services/entity/user/Dockerfile
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./dist/apps/services/entity/user:/app
+      - ./node_modules:/app/node_modules
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - cache
+      - database
+
+      
   web-customer:
     build: 
       context: .
       dockerfile: ./apps/web/customer/Dockerfile
     ports:
-        - "3001:80"
+        - "4001:80"
     volumes:
       - ./dist/apps/web/customer/:/usr/share/nginx/html/
       - ./node_modules:/usr/share/nginx/html/node_modules
