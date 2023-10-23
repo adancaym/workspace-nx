@@ -19,7 +19,7 @@ services:
       - POSTGRES_PASSWORD=S3cret
       - POSTGRES_USER=citizix_user
       - POSTGRES_DB=citizix_db
-  api:
+  service-main-api:
     build: 
       context: .
       dockerfile: ./apps/services/main/api/Dockerfile
@@ -43,7 +43,7 @@ services:
       - ./dist/apps/web/customer/:/usr/share/nginx/html/
       - ./node_modules:/usr/share/nginx/html/node_modules
     depends_on:
-      - api
+      - service-main-api
 
 volumes:
   cache:
