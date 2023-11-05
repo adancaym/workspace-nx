@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
 import { RegisterModule } from './register/register.module';
-import { CustomerModule } from '@workspace-nx/ClientsProxy';
-
+import { CustomerModule } from '@workspace-nx/proxy';
 
 @Module({
-  imports: [ RegisterModule, CustomerModule ],
+  imports: [RegisterModule, CustomerModule],
   controllers: [],
   providers: [],
 })

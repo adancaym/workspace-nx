@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@workspace-nx/ClientsProxy": ["libs/comunications/clients/src/index.ts"],
       "@workspace-nx/databases": ["libs/databases/microservices/src/index.ts"],
       "@workspace-nx/documentation": [
         "libs/documentation/microservices/src/index.ts"
@@ -23,7 +22,8 @@
       "@workspace-nx/microservices": [
         "libs/comunications/microservices/src/index.ts"
       ],
-      "@workspace-nx/models": ["apps/models/src/index.ts"]
+      "@workspace-nx/models": ["apps/models/src/index.ts"],
+      "@workspace-nx/proxy": ["libs/comunications/proxy/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
