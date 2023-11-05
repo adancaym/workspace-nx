@@ -1,0 +1,13 @@
+{
+  "name": "@workspace-nx/databases",
+  "version": "0.0.1",
+  "dependencies": {
+    "@swc/helpers": "~0.5.2",
+    "@nestjs/common": "^10.0.2",
+    "@nestjs/typeorm": "^10.0.0",
+    "typeorm": "^0.3.17"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts"
+}

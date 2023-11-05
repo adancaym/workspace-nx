@@ -2,7 +2,9 @@
   "name": "@workspace-nx/microservices",
   "version": "0.0.1",
   "dependencies": {
-    "@swc/helpers": "~0.5.2"
+    "@swc/helpers": "~0.5.2",
+    "@nestjs/microservices": "^10.2.7",
+    "@nestjs/common": "^10.0.2"
   },
   "type": "commonjs",
   "main": "./src/index.js",

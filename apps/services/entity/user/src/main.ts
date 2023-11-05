@@ -7,7 +7,7 @@ import { startUpMicroservice } from '@workspace-nx/microservices';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<AppModule>(AppModule, startUpMicroservice());
-  await app.listen().then(() => Logger.log(`🚀 redis microservice user is running`));
+  return app.listen().then(() => Logger.log(`🚀 redis microservice user is running`));
 }
 
 bootstrap();
