@@ -2,7 +2,7 @@ import {
   ICreateClientUser,
   IReadClientUser,
   IUpdateClientUser,
-} from '../models';
+} from '../contracts';
 import { IServiceContract } from '../core/service.contract';
 
 export interface ClientUserServiceContract

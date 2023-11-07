@@ -1,4 +1,4 @@
-import { ICreateCustomer, IReadCustomer, IUpdateCustomer } from '../models';
+import { ICreateCustomer, IReadCustomer, IUpdateCustomer } from '../contracts';
 import { IServiceContract } from '../core/service.contract';
 
 export interface CustomerServiceContract
