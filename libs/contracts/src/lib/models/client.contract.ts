@@ -1,4 +1,4 @@
-import { IId } from '../core/id.models';
+import { IId } from '../core/id.contract';
 import { IClientUser } from './client-user.contract';
 
 export interface IClient extends IId {

@@ -1,2 +1,2 @@
-export * from './id.models';
+export * from './id.contract';
 export * from './service.contract';

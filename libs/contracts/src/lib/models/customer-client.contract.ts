@@ -1,4 +1,4 @@
-import { IId } from '../core/id.models';
+import { IId } from '../core/id.contract';
 import { ICustomer } from './customer.contract';
 
 export interface ICustomerClient extends IId {

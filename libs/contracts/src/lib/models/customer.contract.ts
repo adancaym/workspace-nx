@@ -1,5 +1,5 @@
 import { IClient } from './client.contract';
-import { IId } from '../core/id.models';
+import { IId } from '../core/id.contract';
 
 export interface ICustomer extends IId {
   name: string;

@@ -1,4 +1,4 @@
-import { IId } from '../core/id.models';
+import { IId } from '../core/id.contract';
 export interface IUser extends IId {
   email: string;
   password: string;
