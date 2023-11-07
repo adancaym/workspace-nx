@@ -3,8 +3,9 @@ import { ClientProxy } from '@nestjs/microservices';
 import { ClientClientEntityService } from '@workspace-nx/microservices';
 import {
   ClientServiceContract,
-  IClient,
   ICreateClient,
+  IReadClient,
+  IUpdateClient,
 } from '@workspace-nx/contracts';
 
 @Injectable()
@@ -14,24 +15,24 @@ export class ClientService implements ClientServiceContract {
     private proxy: ClientProxy
   ) {}
 
-  async create(clientDto: ICreateClient): Promise<IClient> {
+  async create(clientDto: ICreateClient): Promise<IReadClient> {
     const client = await this.proxy.send('createClient', clientDto).toPromise();
     return client;
   }
 
-  async findAll(): Promise<IClient[]> {
+  async findAll(): Promise<IReadClient[]> {
     const clients = await this.proxy.send('findAllClients', {}).toPromise();
     return clients;
   }
 
-  async findOne(id: number): Promise<IClient> {
+  async findOne(id: number): Promise<IReadClient> {
     const client = await this.proxy.send('findOneClient', id).toPromise();
     return client;
   }
 
-  async update(id: number, clientDto: ICreateClient): Promise<IClient> {
+  async update(id: number, clientDto: IUpdateClient): Promise<IReadClient> {
     const client = await this.proxy
-      .send('updateClient', { id, ...clientDto })
+      .send('updateClient', {  ...clientDto, id })
       .toPromise();
     return client;
   }
