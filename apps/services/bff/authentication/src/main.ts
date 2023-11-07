@@ -7,8 +7,7 @@ import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
-import { documentation } from '@workspace-nx/documentation';
-
+import { documentation } from '@workspace-nx/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -20,11 +19,9 @@ async function bootstrap() {
     description: 'Authentication API',
     version: '1.0',
   });
-  
+
   await app.listen(port);
-  Logger.log(
-    `🚀 Authentication is running on: http://localhost:${port}/`
-  );
+  Logger.log(`🚀 Authentication is running on: http://localhost:${port}/`);
 }
 
 bootstrap();

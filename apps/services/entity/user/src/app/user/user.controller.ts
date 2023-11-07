@@ -1,8 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { EventPattern, MessagePattern, Payload } from '@nestjs/microservices';
 import { UserService } from './user.service';
-import { CreateUser, UpdateUser } from '@workspace-nx/documentation';
-
+import { CreateUser, UpdateUser } from '@workspace-nx/swagger';
 
 @Controller()
 export class UserController {

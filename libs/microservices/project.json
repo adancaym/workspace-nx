@@ -1,0 +1,37 @@
+{
+  "name": "microservices",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/microservices/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/microservices",
+        "main": "libs/microservices/src/index.ts",
+        "tsConfig": "libs/microservices/tsconfig.lib.json",
+        "assets": ["libs/microservices/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/microservices/**/*.ts",
+          "libs/microservices/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/libs/microservices"
+      }
+    }
+  },
+  "tags": []
+}

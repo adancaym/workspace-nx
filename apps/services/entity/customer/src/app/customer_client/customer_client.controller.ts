@@ -1,7 +1,10 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { CustomerClientService } from './customer_client.service';
-import { CreateCustomerClient, UpdateCustomerClient } from '@workspace-nx/documentation';
+import {
+  CreateCustomerClient,
+  UpdateCustomerClient,
+} from '@workspace-nx/swagger';
 
 @Controller()
 export class CustomerClientController {
@@ -24,7 +27,10 @@ export class CustomerClientController {
 
   @MessagePattern('updateCustomerClient')
   update(@Payload() updateCustomerClientDto: UpdateCustomerClient) {
-    return this.customerClientService.update(updateCustomerClientDto.id, updateCustomerClientDto);
+    return this.customerClientService.update(
+      updateCustomerClientDto.id,
+      updateCustomerClientDto
+    );
   }
 
   @MessagePattern('removeCustomerClient')

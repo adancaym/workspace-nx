@@ -1,8 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
-import { ICreateUser, IUpdateUser } from '@workspace-nx/models';
-
+import { ICreateUser, IUpdateUser } from '@workspace-nx/contracts';
 
 describe('UserController', () => {
   let userController: UserController;
@@ -35,8 +34,8 @@ describe('UserController', () => {
 
   it('should create a user', () => {
     const createUserDto: ICreateUser = {
-        email: '',
-        password: '',
+      email: '',
+      password: '',
     };
     userController.create(createUserDto);
     expect(mockController.create).toHaveBeenCalledWith(createUserDto);
@@ -55,12 +54,12 @@ describe('UserController', () => {
 
   it('should update a user', () => {
     const updateUserDto: IUpdateUser = {
-        id: 1,
-        email: '',
-        password: '',
-    }; 
+      id: 1,
+      email: '',
+      password: '',
+    };
     userController.update(updateUserDto);
-    expect(mockController.update).toHaveBeenCalledWith(1,updateUserDto);
+    expect(mockController.update).toHaveBeenCalledWith(1, updateUserDto);
   });
 
   it('should remove a user', () => {

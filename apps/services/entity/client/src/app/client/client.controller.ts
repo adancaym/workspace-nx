@@ -1,14 +1,12 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { ClientService } from './client.service';
-import { CreateClient, UpdateClient } from '@workspace-nx/documentation';
-
+import { CreateClient, UpdateClient } from '@workspace-nx/swagger';
 
 @Controller()
 export class ClientController {
   constructor(private clientService: ClientService) {}
 
-  
   @MessagePattern('createClient')
   create(@Payload() createClientDto: CreateClient) {
     return this.clientService.create(createClientDto);

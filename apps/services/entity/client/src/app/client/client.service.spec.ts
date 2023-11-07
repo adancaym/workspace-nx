@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { ClientService } from './client.service';
 import { Client } from './entities/client.entity';
-import { CreateClient, UpdateClient } from '@workspace-nx/documentation';
+import { CreateClient, UpdateClient } from '@workspace-nx/swagger';
 
 describe('ClientService', () => {
   let clientService: ClientService;

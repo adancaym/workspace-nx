@@ -1,8 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { CustomerService } from './customer.service';
-import { CreateCustomer, UpdateCustomer } from '@workspace-nx/documentation';
-
+import { CreateCustomer, UpdateCustomer } from '@workspace-nx/swagger';
 
 @Controller()
 export class CustomerController {

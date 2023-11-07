@@ -14,8 +14,8 @@ import {
   IId,
   IRegisterClient,
   IRegisterUser,
-} from '@workspace-nx/models';
-import { Client } from '@workspace-nx/documentation';
+} from '@workspace-nx/contracts';
+import { Client } from '@workspace-nx/swagger';
 
 @Injectable()
 export class RegisterService {

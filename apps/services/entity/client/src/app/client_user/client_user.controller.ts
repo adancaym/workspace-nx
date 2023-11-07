@@ -1,12 +1,10 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { ClientUserService } from './client_user.service';
-import { CreateClientUser, UpdateClientUser } from '@workspace-nx/documentation';
-
+import { CreateClientUser, UpdateClientUser } from '@workspace-nx/swagger';
 
 @Controller()
 export class ClientUserController {
-
   constructor(private clientUserService: ClientUserService) {}
 
   @MessagePattern('createClientUser')
@@ -26,7 +24,10 @@ export class ClientUserController {
 
   @MessagePattern('updateClientUser')
   update(@Payload() updateClientUserDto: UpdateClientUser) {
-    return this.clientUserService.update(updateClientUserDto.id, updateClientUserDto);
+    return this.clientUserService.update(
+      updateClientUserDto.id,
+      updateClientUserDto
+    );
   }
 
   @MessagePattern('removeClientUser')
