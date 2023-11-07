@@ -11,5 +11,5 @@ export class Client implements IClient {
     name: string;
     
     @OneToMany(() => ClientUser, client => client.id)
-    client: ClientUser[];
+    users: ClientUser[];
 }

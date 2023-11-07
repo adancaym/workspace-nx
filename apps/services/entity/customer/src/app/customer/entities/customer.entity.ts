@@ -1,8 +1,9 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { CustomerClient } from "../../customer_client/entities/customer_client.entity";
+import { ICustomer } from "@workspace-nx/models";
 
 @Entity('customer')
-export class Customer {
+export class Customer implements ICustomer {
     @PrimaryGeneratedColumn()
     id: number;
 

@@ -1,15 +1,16 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { ClientUserService } from './client_user.service';
-import { CreateClientUserDto } from './dto/create-client_user.dto';
-import { UpdateClientUserDto } from './dto/update-client_user.dto';
+import { CreateClientUser, UpdateClientUser } from '@workspace-nx/documentation';
+
 
 @Controller()
 export class ClientUserController {
-  constructor(private readonly clientUserService: ClientUserService) {}
+
+  constructor(private clientUserService: ClientUserService) {}
 
   @MessagePattern('createClientUser')
-  create(@Payload() createClientUserDto: CreateClientUserDto) {
+  create(@Payload() createClientUserDto: CreateClientUser) {
     return this.clientUserService.create(createClientUserDto);
   }
 
@@ -24,7 +25,7 @@ export class ClientUserController {
   }
 
   @MessagePattern('updateClientUser')
-  update(@Payload() updateClientUserDto: UpdateClientUserDto) {
+  update(@Payload() updateClientUserDto: UpdateClientUser) {
     return this.clientUserService.update(updateClientUserDto.id, updateClientUserDto);
   }
 

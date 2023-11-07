@@ -1,33 +1,33 @@
 import { Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-
-import { UserRegister } from '@workspace-nx/documentation';
 import { UserClientEntityService } from '@workspace-nx/microservices';
 
 import {
   ClientService,
   CustomerClientService,
   CustomerService,
+  UserService,
 } from '@workspace-nx/proxy';
+
 import {
   IClient,
   IId,
   IRegisterClient,
   IRegisterUser,
 } from '@workspace-nx/models';
+import { Client } from '@workspace-nx/documentation';
 
 @Injectable()
 export class RegisterService {
   constructor(
-    @UserClientEntityService
-    private user: ClientProxy,
+    private user: UserService,
     private client: ClientService,
     private customer: CustomerService,
     private customerClient: CustomerClientService
   ) {}
 
   async registerUser(user: IRegisterUser) {
-    const userCreated = await this.user.send('createUser', user).toPromise();
+    const userCreated = await this.user.create(user);
     return userCreated;
   }
 
@@ -42,7 +42,7 @@ export class RegisterService {
       },
     });
 
-    const customerUpdated = await this.customer.update(customer.id, {
+    await this.customer.update(customer.id, {
       name: customer.name,
       clients: [
         ...(customer.clients.map((e: IId | IClient) => e.id) ?? []),
@@ -50,7 +50,7 @@ export class RegisterService {
       ].map((client) => ({ id: client })),
     });
 
-    return customerUpdated;
+    return new Client(clientCreated);
   }
 
   async registerCustomer(customer: any) {

@@ -1,12 +1,25 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CustomerService } from './customer.service';
+import { ClientProxy } from '@nestjs/microservices';
+import { CustomerEntityService } from '@workspace-nx/microservices';
 
 describe('CustomerService', () => {
   let service: CustomerService;
 
+  const mockClientProxy = {
+    send: jest.fn(),
+  };
+
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [CustomerService],
+      imports: [CustomerEntityService],
+      providers: [
+        CustomerService,
+        {
+          provide: ClientProxy,
+          useValue: mockClientProxy,
+        },
+      ],
     }).compile();
 
     service = module.get<CustomerService>(CustomerService);

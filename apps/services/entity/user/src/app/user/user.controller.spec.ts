@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UserController } from './user.controller';
 import { UserService } from './user.service';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { ICreateUser, IUpdateUser } from '@workspace-nx/models';
+
 
 describe('UserController', () => {
   let userController: UserController;
@@ -34,7 +34,7 @@ describe('UserController', () => {
   });
 
   it('should create a user', () => {
-    const createUserDto: CreateUserDto = {
+    const createUserDto: ICreateUser = {
         email: '',
         password: '',
     };
@@ -54,7 +54,7 @@ describe('UserController', () => {
   });
 
   it('should update a user', () => {
-    const updateUserDto: UpdateUserDto = {
+    const updateUserDto: IUpdateUser = {
         id: 1,
         email: '',
         password: '',

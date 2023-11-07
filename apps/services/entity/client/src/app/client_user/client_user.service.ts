@@ -1,26 +1,35 @@
 import { Injectable } from '@nestjs/common';
-import { CreateClientUserDto } from './dto/create-client_user.dto';
-import { UpdateClientUserDto } from './dto/update-client_user.dto';
+import { CreateClientUser, ReadClientUser, UpdateClientUser } from '@workspace-nx/documentation';
+import { ClientUserServiceContract } from '@workspace-nx/models';
+import { ClientUser } from './entities/client_user.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
-export class ClientUserService {
-  create(createClientUserDto: CreateClientUserDto) {
-    return 'This action adds a new clientUser';
+export class ClientUserService implements ClientUserServiceContract {
+
+  constructor(
+    @InjectRepository(ClientUser)
+    private repository: Repository<ClientUser>,
+  ) {}
+
+  create(createClientUserDto: CreateClientUser) {
+    return this.repository.save(createClientUserDto).then( e => new ReadClientUser(e)); 
   }
 
   findAll() {
-    return `This action returns all clientUser`;
+    return this.repository.find().then( e => e.map( e => new ReadClientUser(e)));
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} clientUser`;
+    return this.repository.findOne({ where: { id }}).then( e => new ReadClientUser(e));
   }
 
-  update(id: number, updateClientUserDto: UpdateClientUserDto) {
-    return `This action updates a #${id} clientUser`;
+  update(id: number, updateClientUserDto: UpdateClientUser) {
+    return this.repository.update(id, updateClientUserDto).then( () => this.findOne(id));
   }
 
   remove(id: number) {
-    return `This action removes a #${id} clientUser`;
+    return this.repository.delete(id);
   }
 }

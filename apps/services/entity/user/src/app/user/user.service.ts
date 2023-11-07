@@ -1,44 +1,40 @@
+import { IReadUser } from '@workspace-nx/models';
 import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
+import { UserServiceContract } from '@workspace-nx/models';
+import { CreateUser, ReadUser, UpdateUser } from '@workspace-nx/documentation';
 
 type userRepository = Repository<User>;
 
 
 @Injectable()
-export class UserService {
-
-
+export class UserService implements UserServiceContract{
   constructor(
     @InjectRepository(User)
     private repository: userRepository,
   ) {}
 
-  create(createUserDto: CreateUserDto) {
+  create(createUserDto: CreateUser) {
     const preSave = this.repository.create(createUserDto);
-    return this.repository.save(preSave);
+    return this.repository.save(preSave).then( e => new ReadUser(e));
   }
 
   findAll() {
-    return this.repository.find();
+    return this.repository.find().then( e => e.map( e => new ReadUser(e)));
   }
 
   findOne(id: number) {
-    return this.repository.findOne(
-     {
-        where: { id }
-     }
-    );
+    return this.repository.findOne({ where: { id }}).then( e => new ReadUser(e));
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return this.repository.update(id, updateUserDto);
+  update(id: number, updateUserDto: UpdateUser) {
+    return this.repository.update(id, updateUserDto).then( () => this.findOne(id));
   }
 
   remove(id: number) {
-    return this.repository.delete(id);
+    this.repository.delete(id);
   }
 }

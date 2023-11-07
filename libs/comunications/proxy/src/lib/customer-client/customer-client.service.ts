@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
+import { CreateCustomerClient, CustomerClient } from '@workspace-nx/documentation';
 import { CustomerClientEntityService } from '@workspace-nx/microservices';
-import { CreateCustomerClient, CustomerClient } from '../types';
 
 @Injectable()
 export class CustomerClientService {

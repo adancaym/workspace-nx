@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { RegisterService } from './register.service';
 import { ApiTags } from '@nestjs/swagger';
-import { IRegisterClient, IRegisterCustomer, IRegisterUser } from '@workspace-nx/models';
+import { RegisterClient, RegisterCustomer, RegisterUser } from '@workspace-nx/documentation';
 
 
 @Controller()
@@ -11,17 +11,17 @@ export class RegisterController {
 
 
   @Post('register/user')
-  registerUser(@Body() user: IRegisterUser) {
+  registerUser(@Body() user: RegisterUser) {
     return this.registerService.registerUser(user);
   }
 
   @Post('register/customer')
-  registerClient(@Body() client: IRegisterCustomer) {
+  registerClient(@Body() client: RegisterCustomer) {
     return this.registerService.registerCustomer(client);
   }
 
   @Post('register/client')
-  registerCustomer(@Body() customer: IRegisterClient) {
+  registerCustomer(@Body() customer: RegisterClient) {
     return this.registerService.registerClient(customer);
   }
 }
