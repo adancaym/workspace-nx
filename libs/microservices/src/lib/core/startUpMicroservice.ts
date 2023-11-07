@@ -1,4 +1,5 @@
 import { Transport } from '@nestjs/microservices';
+import { host, port } from '../constants';
 
 
 export const startUpMicroservice = () => {
