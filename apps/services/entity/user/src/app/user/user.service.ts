@@ -1,4 +1,3 @@
-import { IReadUser } from '@workspace-nx/contracts';
 import { Injectable } from '@nestjs/common';
 
 import { InjectRepository } from '@nestjs/typeorm';

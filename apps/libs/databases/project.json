@@ -1,0 +1,37 @@
+{
+  "name": "databases",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/libs/databases/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/libs/databases",
+        "main": "apps/libs/databases/src/index.ts",
+        "tsConfig": "apps/libs/databases/tsconfig.lib.json",
+        "assets": ["apps/libs/databases/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/libs/databases/**/*.ts",
+          "apps/libs/databases/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../../coverage/apps/libs/databases"
+      }
+    }
+  },
+  "tags": []
+}

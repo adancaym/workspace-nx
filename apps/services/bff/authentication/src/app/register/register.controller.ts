@@ -2,7 +2,6 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { RegisterService } from './register.service';
 import {
   ApiBody,
-  ApiCreatedResponse,
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
@@ -12,7 +11,6 @@ import {
   RegisterCustomer,
   RegisterUser,
 } from '@workspace-nx/swagger';
-
 @Controller()
 @ApiResponse({ status: 403, description: 'Forbidden.' })
 @ApiResponse({ status: 400, description: 'Bad Request.' })

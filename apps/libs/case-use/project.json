@@ -1,0 +1,37 @@
+{
+  "name": "case-use",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/libs/case-use/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/libs/case-use",
+        "main": "apps/libs/case-use/src/index.ts",
+        "tsConfig": "apps/libs/case-use/tsconfig.lib.json",
+        "assets": ["apps/libs/case-use/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/libs/case-use/**/*.ts",
+          "apps/libs/case-use/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../../coverage/apps/libs/case-use"
+      }
+    }
+  },
+  "tags": []
+}
