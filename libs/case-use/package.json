@@ -1,10 +1,11 @@
 {
-  "name": "@workspace-nx/swagger",
+  "name": "@workspace-nx/case-use",
   "version": "0.0.1",
   "dependencies": {
     "@swc/helpers": "~0.5.2",
-    "@nestjs/swagger": "^7.1.14",
-    "@workspace-nx/contracts": "*"
+    "@workspace-nx/contracts": "*",
+    "@workspace-nx/swagger": "*"
+
   },
   "type": "commonjs",
   "main": "./src/index.js",

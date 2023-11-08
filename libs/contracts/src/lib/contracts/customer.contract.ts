@@ -3,7 +3,7 @@ import { ICustomerClient } from './customer-client.contract';
 
 export interface ICustomer extends IId {
   name: string;
-  clients?: ICustomerClient[] | IId[];
+  clients: ICustomerClient[] | IId[];
 }
 export type ICreateCustomer = Omit<ICustomer, 'id'>;
 export type IRegisterCustomer = ICreateCustomer;

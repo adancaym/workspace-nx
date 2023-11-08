@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@workspace-nx/case-use": ["libs/case-use/src/index.ts"],
       "@workspace-nx/contracts": ["libs/contracts/src/index.ts"],
       "@workspace-nx/databases": ["libs/databases/src/index.ts"],
       "@workspace-nx/microservices": ["libs/microservices/src/index.ts"],

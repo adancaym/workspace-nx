@@ -1,9 +1,9 @@
 import { ICustomer, IId } from '@workspace-nx/contracts';
-import { Client } from '../client';
+import { CustomerClient } from '../customerClient';
 
 export class Customer implements ICustomer {
   name: string;
-  clients?: Client[] | IId[] | undefined;
+  clients: CustomerClient[] | IId[];
   id: number;
 
   constructor(data: ICustomer) {

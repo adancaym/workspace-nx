@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IId, IReadCustomer } from '@workspace-nx/contracts';
-import { Client } from '../client';
+import { CustomerClient } from '../customerClient';
 
 export class ReadCustomer implements IReadCustomer {
   @ApiProperty()
@@ -10,7 +10,7 @@ export class ReadCustomer implements IReadCustomer {
   name: string;
 
   @ApiProperty()
-  clients?: Client[] | IId[];
+  clients: CustomerClient[] | IId[];
 
   constructor(data: IReadCustomer) {
     this.id = data.id;

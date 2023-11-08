@@ -1,13 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IId, IRegisterCustomer } from '@workspace-nx/contracts';
-import { Client } from '../client';
+import { CustomerClient } from '../customerClient';
 
 export class RegisterCustomer implements IRegisterCustomer {
   @ApiProperty()
   name: string;
 
   @ApiProperty()
-  clients?: Client[] | IId[] | undefined;
+  clients: CustomerClient[] | IId[];
 
   constructor(data: IRegisterCustomer) {
     this.name = data.name;
