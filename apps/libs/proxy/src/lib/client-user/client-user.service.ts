@@ -3,6 +3,7 @@ import { ClientProxy } from '@nestjs/microservices';
 import { CreateClientUser, ReadClientUser } from '@workspace-nx/swagger';
 import { ClientClientEntityService } from '@workspace-nx/microservices';
 import { ClientUserServiceContract } from '@workspace-nx/contracts';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable()
 export class ClientUserService implements ClientUserServiceContract {
@@ -12,18 +13,18 @@ export class ClientUserService implements ClientUserServiceContract {
   ) {}
 
   create(client: CreateClientUser): Promise<ReadClientUser> {
-    return this.proxy.send('createClientUser', client).toPromise();
+    return firstValueFrom(this.proxy.send('createClientUser', client))
   }
   update(id: number, client: CreateClientUser): Promise<ReadClientUser> {
-    return this.proxy.send('updateClientUser', { id, ...client }).toPromise();
+    return firstValueFrom(this.proxy.send('updateClientUser', { id, ...client }))
   }
   findOne(id: number): Promise<ReadClientUser> {
-    return this.proxy.send('findOneClientUser', id).toPromise();
+    return firstValueFrom(this.proxy.send('findOneClientUser', id))
   }
   findAll(): Promise<ReadClientUser[]> {
-    return this.proxy.send('findAllClientUser', {}).toPromise();
+    return firstValueFrom(this.proxy.send('findAllClientUser', {}))
   }
   remove(id: number): void {
-    this.proxy.send('removeClientUser', id).toPromise();
+    firstValueFrom(this.proxy.send('removeClientUser', id))
   }
 }
