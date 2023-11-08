@@ -4,10 +4,10 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class UpdateCustomerClient implements IUpdateCustomerClient {
   @ApiProperty()
-  id?: number | undefined;
+  id?: number;
 
   @ApiProperty()
-  clientId: number | undefined;
+  clientId?: number;
 
   @ApiProperty()
   customer?: Customer | IId;

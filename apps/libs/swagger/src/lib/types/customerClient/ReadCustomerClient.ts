@@ -10,7 +10,7 @@ export class ReadCustomerClient implements IReadCustomerClient {
   clientId: number;
 
   @ApiProperty()
-  customer?: IId | Customer | undefined;
+  customer?: IId | Customer;
 
   constructor(data: IReadCustomerClient) {
     this.id = data.id;
