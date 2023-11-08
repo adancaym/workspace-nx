@@ -1,21 +1,24 @@
 import { Injectable } from '@nestjs/common';
-import { ClientProxy } from '@nestjs/microservices';
-import { UserClientEntityService } from '@workspace-nx/microservices';
 
 import {
   ClientService,
   CustomerClientService,
   CustomerService,
-  UserService,
+  UserService
 } from '@workspace-nx/proxy';
 
 import {
-  IClient,
-  IId,
+  IReadClient,
   IRegisterClient,
-  IRegisterUser,
+  IRegisterUser
 } from '@workspace-nx/contracts';
-import { Client } from '@workspace-nx/swagger';
+
+import {
+  CreateClient,
+  CreateCustomerClient,
+  ReadClient,
+  UpdateCustomer
+} from '@workspace-nx/swagger';
 
 @Injectable()
 export class RegisterService {
@@ -32,28 +35,73 @@ export class RegisterService {
   }
 
   async registerClient(client: IRegisterClient) {
-    const clientCreated = await this.client.create(client);
-    const customer = await this.customer.findOne(Number(client.customer));
-
-    const customerClient = await this.customerClient.create({
-      clientId: clientCreated.id,
-      customer: {
-        id: customer.id,
-      },
+    const caseUse = new CURegisterClient({
+      clientDto: client,
+      clientService: this.client,
+      customerService: this.customer,
+      customerClientService: this.customerClient
     });
 
-    await this.customer.update(customer.id, {
-      name: customer.name,
-      clients: [
-        ...(customer.clients.map((e: IId | IClient) => e.id) ?? []),
-        customerClient.id,
-      ].map((client) => ({ id: client })),
-    });
-
-    return new Client(clientCreated);
+    return caseUse.register();
   }
 
   async registerCustomer(customer: any) {
     return customer;
+  }
+}
+
+interface ICURegisterClientArgs {
+  clientDto: IRegisterClient;
+  clientService: ClientService;
+  customerService: CustomerService;
+  customerClientService: CustomerClientService;
+}
+
+interface ICURegisterClient {
+  register(client: IRegisterClient): Promise<IReadClient>;
+}
+
+class CURegisterClient implements ICURegisterClient {
+  private clientDto: IRegisterClient;
+  private clientService: ClientService;
+  private customerService: CustomerService;
+  private customerClientService: CustomerClientService;
+
+  constructor({
+    clientDto,
+    clientService,
+    customerService,
+    customerClientService
+  }: ICURegisterClientArgs) {
+    this.clientDto = clientDto;
+    this.clientService = clientService;
+    this.customerService = customerService;
+    this.customerClientService = customerClientService;
+  }
+  async register() {
+
+    const clientCreatedDto = await this.clientService.create(
+      new CreateClient(this.clientDto)
+    );
+
+    const customerSavedDto = await this.customerService.findOne(
+      Number(this.clientDto.customer)
+    );
+
+    const customerClientDto = await this.customerClientService.create(
+      new CreateCustomerClient({
+        clientId: clientCreatedDto.id,
+        customer: customerSavedDto
+      })
+    );
+
+    customerSavedDto.clients.push(customerClientDto);
+
+    await this.customerService.update(
+      customerSavedDto.id,
+      new UpdateCustomer(customerSavedDto)
+    );
+
+    return new ReadClient(clientCreatedDto);
   }
 }

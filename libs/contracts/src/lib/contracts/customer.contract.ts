@@ -1,9 +1,9 @@
-import { IClient } from './client.contract';
 import { IId } from '../core/id.contract';
+import { ICustomerClient } from './customer-client.contract';
 
 export interface ICustomer extends IId {
   name: string;
-  clients?: IClient[] | IId[];
+  clients?: ICustomerClient[] | IId[];
 }
 export type ICreateCustomer = Omit<ICustomer, 'id'>;
 export type IRegisterCustomer = ICreateCustomer;

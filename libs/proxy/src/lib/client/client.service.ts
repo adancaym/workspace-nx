@@ -16,22 +16,22 @@ export class ClientService implements ClientServiceContract {
   ) {}
 
   async create(clientDto: ICreateClient): Promise<IReadClient> {
-    const client = await this.proxy.send('createClient', clientDto).toPromise();
+    const client: IReadClient = await this.proxy.send('createClient', clientDto).toPromise();
     return client;
   }
 
   async findAll(): Promise<IReadClient[]> {
-    const clients = await this.proxy.send('findAllClients', {}).toPromise();
+    const clients: IReadClient[] = await this.proxy.send('findAllClients', {}).toPromise();
     return clients;
   }
 
   async findOne(id: number): Promise<IReadClient> {
-    const client = await this.proxy.send('findOneClient', id).toPromise();
+    const client: IReadClient = await this.proxy.send('findOneClient', id).toPromise();
     return client;
   }
 
   async update(id: number, clientDto: IUpdateClient): Promise<IReadClient> {
-    const client = await this.proxy
+    const client: IReadClient = await this.proxy
       .send('updateClient', {  ...clientDto, id })
       .toPromise();
     return client;
