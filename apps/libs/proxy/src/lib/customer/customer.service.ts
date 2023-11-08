@@ -2,46 +2,37 @@ import { Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { CustomerClientEntityService } from '@workspace-nx/microservices';
 import {
+  CustomerServiceContract,
   ICreateCustomer,
   ICustomer,
   IUpdateCustomer,
 } from '@workspace-nx/contracts';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable()
-export class CustomerService {
+export class CustomerService implements CustomerServiceContract{
   constructor(
     @CustomerClientEntityService
     private proxy: ClientProxy
   ) {}
 
   async create(customer: ICreateCustomer): Promise<ICustomer> {
-    const customerCreated = await this.proxy
-      .send('createCustomer', customer)
-      .toPromise();
-    return customerCreated;
+    return firstValueFrom(this.proxy.send('createCustomer', customer));
   }
 
   async findAll(): Promise<ICustomer[]> {
-    const customers = await this.proxy.send('findAllCustomer', {}).toPromise();
-    return customers;
+    return firstValueFrom(this.proxy.send('findAllCustomer', {}))
   }
 
   async findOne(id: number): Promise<ICustomer> {
-    const customer = await this.proxy.send('findOneCustomer', id).toPromise();
-    return customer;
+    return firstValueFrom(this.proxy.send('findOneCustomer', id))
   }
 
   async update(id: number, customer: IUpdateCustomer): Promise<ICustomer> {
-    const customerUpdated = await this.proxy
-      .send('updateCustomer', { ...customer, id })
-      .toPromise();
-    return customerUpdated;
+    return firstValueFrom(this.proxy.send('updateCustomer', { ...customer, id }))
   }
 
   async remove(id: number) {
-    const customerDeleted = await this.proxy
-      .send('removeCustomer', id)
-      .toPromise();
-    return customerDeleted;
+    firstValueFrom( this.proxy.send('removeCustomer', id));
   }
 }

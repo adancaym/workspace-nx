@@ -8,7 +8,7 @@ import {
   IUpdateClient,
 } from '@workspace-nx/contracts';
 
-import {  Observable, firstValueFrom } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable()
 export class ClientService implements ClientServiceContract {
@@ -18,34 +18,23 @@ export class ClientService implements ClientServiceContract {
   ) {}
 
   async create(clientDto: ICreateClient): Promise<IReadClient> {
-    const client: Observable<IReadClient> = this
-    .proxy.send('createClient', clientDto)
+    return firstValueFrom(this.proxy.send('createClient', clientDto))
 
-    return firstValueFrom(client);
   }
 
   async findAll(): Promise<IReadClient[]> {
-    const clients: Observable<IReadClient[]> = this
-    .proxy.send('findAllClients', {})
-
-    return firstValueFrom(clients);
+    return firstValueFrom(this.proxy.send('findAllClients', {}));
   }
 
   async findOne(id: number): Promise<IReadClient> {
-    const client: Observable<IReadClient> = this
-    .proxy.send('findOneClient', id)
-
-    return firstValueFrom(client);
+    return firstValueFrom(this.proxy.send('findOneClient', id));
   }
 
   async update(id: number, clientDto: IUpdateClient): Promise<IReadClient> {
-    const client: Observable<IReadClient> = this
-    .proxy.send('updateClient', { ...clientDto, id })
-
-    return firstValueFrom(client);
+    return firstValueFrom(this.proxy.send('updateClient', { ...clientDto, id }));
   }
 
   async remove(id: number) {
-    this.proxy.send('removeClient', id);
+    firstValueFrom( this.proxy.send('removeClient', id))
   }
 }

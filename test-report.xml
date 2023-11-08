@@ -7,8 +7,8 @@
     <testCase name="UserController should be defined" duration="2"/>
     <testCase name="UserController should create a user" duration="1"/>
     <testCase name="UserController should find all users" duration="0"/>
-    <testCase name="UserController should find a user by id" duration="0"/>
+    <testCase name="UserController should find a user by id" duration="1"/>
     <testCase name="UserController should update a user" duration="0"/>
-    <testCase name="UserController should remove a user" duration="1"/>
+    <testCase name="UserController should remove a user" duration="0"/>
   </file>
 </testExecutions>
