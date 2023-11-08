@@ -7,11 +7,9 @@
     "test-all": "npx nx run-many --target=test --all --testResultsProcessor jest-sonar-reporter && npm run test-e2e-all",
     "test-e2e-all": "npx nx run-many --target=e2e --all",
     "build-all": "npm run test-all && npx nx run-many --target=build",
-    "clean-project": "npm run close && npm run build-all",
     "deploy-local": "docker compose up -d",
-    "deploy-local-log": "docker compose up",
-    "dev-log": "npm run clean-project && npm run deploy-local-log",
-    "dev": "npm run clean-project && npm run deploy-local",
+    "dev-log": "npm run close && npm run build-all && docker compose up",
+    "dev": "npm run build-all && npm run deploy-local",
     "close": "docker compose down"
   },
   "private": true,
