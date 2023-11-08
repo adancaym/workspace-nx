@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/Users/caym/Documents/GitHub/workspace-nx/apps/services/entity/user/src/app/user/user.service.spec.ts">
-    <testCase name="UserService should be defined" duration="2"/>
+  <file path="/Users/caym/Documents/GitHub/workspace-nx/apps/libs/proxy/src/lib/client/client.service.spec.ts">
+    <testCase name="ClientService should be defined" duration="9"/>
   </file>
-  <file path="/Users/caym/Documents/GitHub/workspace-nx/apps/services/entity/user/src/app/user/user.controller.spec.ts">
-    <testCase name="UserController should be defined" duration="2"/>
-    <testCase name="UserController should create a user" duration="1"/>
-    <testCase name="UserController should find all users" duration="0"/>
-    <testCase name="UserController should find a user by id" duration="1"/>
-    <testCase name="UserController should update a user" duration="0"/>
-    <testCase name="UserController should remove a user" duration="0"/>
+  <file path="/Users/caym/Documents/GitHub/workspace-nx/apps/libs/proxy/src/lib/customer-client/customer-client.service.spec.ts">
+    <testCase name="CustomerClientService should be defined" duration="7"/>
+  </file>
+  <file path="/Users/caym/Documents/GitHub/workspace-nx/apps/libs/proxy/src/lib/customer/customer.service.spec.ts">
+    <testCase name="CustomerService should be defined" duration="7"/>
+  </file>
+  <file path="/Users/caym/Documents/GitHub/workspace-nx/apps/libs/proxy/src/lib/user/user.service.spec.ts">
+    <testCase name="UserService should be defined" duration="8"/>
+  </file>
+  <file path="/Users/caym/Documents/GitHub/workspace-nx/apps/libs/proxy/src/lib/client-user/client-user.service.spec.ts">
+    <testCase name="ClientUserService should be defined" duration="7"/>
   </file>
 </testExecutions>
