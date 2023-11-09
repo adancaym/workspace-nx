@@ -1,5 +1,7 @@
 [![Bugs](http://localhost:9000/api/project_badges/measure?project=workspace-nx&metric=bugs&token=sqb_638522e0bc6cfa9b6805fdd9b10a57bbaef7a129)](http://localhost:9000/dashboard?id=workspace-nx) [![Code Smells](http://localhost:9000/api/project_badges/measure?project=workspace-nx&metric=code_smells&token=sqb_638522e0bc6cfa9b6805fdd9b10a57bbaef7a129)](http://localhost:9000/dashboard?id=workspace-nx) [![Coverage](http://localhost:9000/api/project_badges/measure?project=workspace-nx&metric=coverage&token=sqb_638522e0bc6cfa9b6805fdd9b10a57bbaef7a129)](http://localhost:9000/dashboard?id=workspace-nx) [![Duplicated Lines (%)](http://localhost:9000/api/project_badges/measure?project=workspace-nx&metric=duplicated_lines_density&token=sqb_638522e0bc6cfa9b6805fdd9b10a57bbaef7a129)](http://localhost:9000/dashboard?id=workspace-nx) [![Lines of Code](http://localhost:9000/api/project_badges/measure?project=workspace-nx&metric=ncloc&token=sqb_638522e0bc6cfa9b6805fdd9b10a57bbaef7a129)](http://localhost:9000/dashboard?id=workspace-nx)
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/K9cxXde51Sd25tK8xEP4Pv/LH4HpXUmepXxdWQyXwM3Em/tree/main.svg?style=svg&circle-token=350ebefd3d797afd13f0a6975aa1503b33544b43)](https://dl.circleci.com/status-badge/redirect/circleci/K9cxXde51Sd25tK8xEP4Pv/LH4HpXUmepXxdWQyXwM3Em/tree/main)
+
 # WorkspaceNx
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
