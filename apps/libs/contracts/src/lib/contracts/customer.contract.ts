@@ -6,6 +6,6 @@ export interface ICustomer extends IId {
   clients: ICustomerClient[] | IId[];
 }
 export type ICreateCustomer = Omit<ICustomer, 'id'>;
-export type IRegisterCustomer = ICreateCustomer;
+export type IRegisterCustomer = Omit<ICreateCustomer, 'id'>;
 export type IReadCustomer = ICustomer;
 export type IUpdateCustomer = Partial<ICustomer>;
