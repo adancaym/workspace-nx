@@ -1,3 +1,5 @@
+[![Quality Gate Status](http://localhost:9000/api/project_badges/measure?project=workspace-nx&metric=alert_status&token=sqb_638522e0bc6cfa9b6805fdd9b10a57bbaef7a129)](http://localhost:9000/dashboard?id=workspace-nx)
+
 # WorkspaceNx
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>

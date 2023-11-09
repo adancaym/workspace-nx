@@ -6,10 +6,10 @@
     "analize": "npm run test-all && node sonarqube-scanner.js",
     "test": "npx nx run-many --target=test --all --testResultsProcessor jest-sonar-reporter && npm run test-e2e-all",
     "test-e2e-all": "npx nx run-many --target=e2e --all",
-    "build-all": "npm run test-all && npx nx run-many --target=build",
+    "build-all": "npx nx run-many --target=build",
     "deploy-local": "docker compose up -d",
     "dev-log": "npm run close && npm run build-all && docker compose up",
-    "dev": "npm run build-all && npm run deploy-local",
+    "dev": "npm run build-all && docker compose up -d",
     "close": "docker compose down",
     "prepare": "husky install"
   },
