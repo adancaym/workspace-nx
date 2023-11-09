@@ -1,4 +1,13 @@
-[![Quality Gate Status](http://localhost:9000/api/project_badges/measure?project=workspace-nx&metric=alert_status&token=sqb_638522e0bc6cfa9b6805fdd9b10a57bbaef7a129)](http://localhost:9000/dashboard?id=workspace-nx)
+[![Bugs](http://localhost:9000/api/project_badges/measure?project=workspace-nx&metric=bugs&token=sqb_638522e0bc6cfa9b6805fdd9b10a57bbaef7a129)](http://localhost:9000/dashboard?id=workspace-nx)
+
+[![Code Smells](http://localhost:9000/api/project_badges/measure?project=workspace-nx&metric=code_smells&token=sqb_638522e0bc6cfa9b6805fdd9b10a57bbaef7a129)](http://localhost:9000/dashboard?id=workspace-nx)
+
+
+[![Coverage](http://localhost:9000/api/project_badges/measure?project=workspace-nx&metric=coverage&token=sqb_638522e0bc6cfa9b6805fdd9b10a57bbaef7a129)](http://localhost:9000/dashboard?id=workspace-nx)
+
+[![Duplicated Lines (%)](http://localhost:9000/api/project_badges/measure?project=workspace-nx&metric=duplicated_lines_density&token=sqb_638522e0bc6cfa9b6805fdd9b10a57bbaef7a129)](http://localhost:9000/dashboard?id=workspace-nx)
+
+[![Lines of Code](http://localhost:9000/api/project_badges/measure?project=workspace-nx&metric=ncloc&token=sqb_638522e0bc6cfa9b6805fdd9b10a57bbaef7a129)](http://localhost:9000/dashboard?id=workspace-nx)
 
 # WorkspaceNx
 
