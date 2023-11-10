@@ -15,13 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@workspace-nx/case-use": ["apps/libs/case-use/src/index.ts"],
-      "@workspace-nx/contracts": ["apps/libs/contracts/src/index.ts"],
-      "@workspace-nx/databases": ["apps/libs/databases/src/index.ts"],
-      "@workspace-nx/external": ["apps/libs/external/src/index.ts"],
-      "@workspace-nx/microservices": ["apps/libs/microservices/src/index.ts"],
-      "@workspace-nx/proxy": ["apps/libs/proxy/src/index.ts"],
-      "@workspace-nx/swagger": ["apps/libs/swagger/src/index.ts"]
+      "@workspace-nx/case-use": ["apps/case-use/src/index.ts"],
+      "@workspace-nx/configs": ["apps/configs/src/index.ts"],
+      "@workspace-nx/contracts": ["apps/contracts/src/index.ts"],
+      "@workspace-nx/databases": ["apps/databases/src/index.ts"],
+      "@workspace-nx/mail": ["apps/services/external/mail/src/index.ts"],
+      "@workspace-nx/proxy": ["apps/proxy/src/index.ts"],
+      "@workspace-nx/swagger": ["apps/swagger/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

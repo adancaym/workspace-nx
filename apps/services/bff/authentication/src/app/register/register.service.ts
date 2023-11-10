@@ -4,6 +4,7 @@ import {
   ClientService,
   CustomerClientService,
   CustomerService,
+  MailerService,
   UserService,
 } from '@workspace-nx/proxy';
 
@@ -18,7 +19,8 @@ export class RegisterService {
     private user: UserService,
     private client: ClientService,
     private customer: CustomerService,
-    private customerClient: CustomerClientService
+    private customerClient: CustomerClientService,
+    private mail: MailerService,
   ) {}
 
   async registerUser(user: IRegisterUser) {

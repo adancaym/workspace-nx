@@ -1,0 +1,37 @@
+{
+  "name": "swagger",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/swagger/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/swagger",
+        "main": "apps/swagger/src/index.ts",
+        "tsConfig": "apps/swagger/tsconfig.lib.json",
+        "assets": ["apps/swagger/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/swagger/**/*.ts",
+          "apps/swagger/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/swagger"
+      }
+    }
+  },
+  "tags": []
+}
