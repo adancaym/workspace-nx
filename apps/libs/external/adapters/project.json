@@ -1,17 +1,17 @@
 {
-  "name": "mail",
+  "name": "adapters",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/services/external/mail/src",
+  "sourceRoot": "apps/libs/external/adapters/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nx/js:swc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/services/external/mail",
-        "main": "apps/services/external/mail/src/index.ts",
-        "tsConfig": "apps/services/external/mail/tsconfig.lib.json",
-        "assets": ["apps/services/external/mail/*.md"]
+        "outputPath": "dist/apps/libs/external/adapters",
+        "main": "apps/libs/external/adapters/src/index.ts",
+        "tsConfig": "apps/libs/external/adapters/tsconfig.lib.json",
+        "assets": ["apps/libs/external/adapters/*.md"]
       }
     },
     "lint": {
@@ -19,8 +19,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "apps/services/external/mail/**/*.ts",
-          "apps/services/external/mail/package.json"
+          "apps/libs/external/adapters/**/*.ts",
+          "apps/libs/external/adapters/package.json"
         ]
       }
     },
@@ -29,7 +29,7 @@
       "outputs": ["{options.reportsDirectory}"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../../../coverage/apps/services/external/mail"
+        "reportsDirectory": "../../../../coverage/apps/libs/external/adapters"
       }
     },
     "container": {

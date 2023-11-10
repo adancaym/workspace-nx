@@ -15,11 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@workspace-nx/adapters": ["apps/libs/external/adapters/src/index.ts"],
       "@workspace-nx/case-use": ["apps/case-use/src/index.ts"],
       "@workspace-nx/configs": ["apps/configs/src/index.ts"],
       "@workspace-nx/contracts": ["apps/contracts/src/index.ts"],
       "@workspace-nx/databases": ["apps/databases/src/index.ts"],
-      "@workspace-nx/mail": ["apps/services/external/mail/src/index.ts"],
       "@workspace-nx/proxy": ["apps/proxy/src/index.ts"],
       "@workspace-nx/swagger": ["apps/swagger/src/index.ts"]
     }

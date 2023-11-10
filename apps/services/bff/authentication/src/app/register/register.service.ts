@@ -20,7 +20,6 @@ export class RegisterService {
     private client: ClientService,
     private customer: CustomerService,
     private customerClient: CustomerClientService,
-    private mail: MailerService,
   ) {}
 
   async registerUser(user: IRegisterUser) {

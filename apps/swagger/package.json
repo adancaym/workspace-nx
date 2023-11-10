@@ -4,7 +4,8 @@
   "dependencies": {
     "@swc/helpers": "~0.5.2",
     "@nestjs/swagger": "^7.1.14",
-    "@workspace-nx/contracts": "*"
+    "@workspace-nx/contracts": "*",
+    "@nestjs/common": "^10.0.2"
   },
   "type": "commonjs",
   "main": "./src/index.js",
