@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { UserModule } from './user';
-import { CustomerClientModule } from './customer-client';
-import { CustomerModule } from './customer';
-import { ClientUserModule } from './client-user';
-import { ClientModule } from './client';
+import { UserModule } from './entities/user';
+import { CustomerClientModule } from './entities/customer-client';
+import { CustomerModule } from './entities/customer';
+import { ClientUserModule } from './entities/client-user';
+import { ClientModule } from './entities/client';
 
 @Module({
   imports: [
