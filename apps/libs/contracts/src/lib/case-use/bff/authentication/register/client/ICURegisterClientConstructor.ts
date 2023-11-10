@@ -1,10 +1,5 @@
-import { IRegisterClient } from '../../../../../contracts';
-
-import {
-  ClientServiceContract,
-  CustomerServiceContract,
-  CustomerClientServiceContract,
-} from '../../../../entity';
+import { IRegisterClient } from '../../../../../entities';
+import { ClientServiceContract,CustomerServiceContract,CustomerClientServiceContract } from '../../../../../services';
 
 export interface ICURegisterClientConstructor {
   clientDto: IRegisterClient;

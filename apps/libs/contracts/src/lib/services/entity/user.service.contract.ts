@@ -1,4 +1,4 @@
-import { ICreateUser, IReadUser, IUpdateUser } from '../../contracts';
+import { ICreateUser, IReadUser, IUpdateUser } from '../../entities';
 import { IServiceContract } from '../../core/service.contract';
 
 export interface UserServiceContract

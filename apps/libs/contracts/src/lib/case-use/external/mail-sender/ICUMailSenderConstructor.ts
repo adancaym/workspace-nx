@@ -1,4 +1,4 @@
-import { IMailSender } from "../../../contracts";
+import { IMailSender } from "../../../entities";
 import { ICUMailSender } from "./ICUMailSender";
 
 export interface ICUMailSenderConstructor {

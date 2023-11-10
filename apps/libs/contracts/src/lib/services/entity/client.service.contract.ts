@@ -3,7 +3,7 @@ import {
   ICreateClient,
   IReadClient,
   IUpdateClient,
-} from '../../contracts';
+} from '../../entities';
 import { IServiceContract } from '../../core/service.contract';
 
 export interface ClientServiceContract
