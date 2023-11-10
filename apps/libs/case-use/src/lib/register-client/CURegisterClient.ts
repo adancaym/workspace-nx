@@ -2,18 +2,17 @@ import {
   ClientServiceContract,
   CustomerClientServiceContract,
   CustomerServiceContract,
-  IRegisterClient,
+  ICURegisterClient,
+  ICURegisterClientConstructor,
+  IRegisterClient
 } from '@workspace-nx/contracts';
-import { ICURegisterClient } from './ICURegisterClient';
-
-import { ICURegisterClientArgs } from './ICURegisterClientArgs';
-
 import {
   CreateClient,
   CreateCustomerClient,
   ReadClient,
-  UpdateCustomer,
+  UpdateCustomer
 } from '@workspace-nx/swagger';
+
 
 export class CURegisterClient implements ICURegisterClient {
   private clientDto: IRegisterClient;
@@ -22,11 +21,8 @@ export class CURegisterClient implements ICURegisterClient {
   private customerClientService: CustomerClientServiceContract;
 
   constructor({
-    clientDto,
-    clientService,
-    customerService,
-    customerClientService,
-  }: ICURegisterClientArgs) {
+    clientDto, clientService, customerService, customerClientService,
+  }: ICURegisterClientConstructor) {
     this.clientDto = clientDto;
     this.clientService = clientService;
     this.customerService = customerService;
@@ -34,8 +30,7 @@ export class CURegisterClient implements ICURegisterClient {
   }
 
   async register() {
-    const { clientDto, clientService, customerService, customerClientService } =
-      this;
+    const { clientDto, clientService, customerService, customerClientService } = this;
 
     const clientCreatedDto = await clientService.create(
       new CreateClient(clientDto)
